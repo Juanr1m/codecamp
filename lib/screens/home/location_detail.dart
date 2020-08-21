@@ -5,12 +5,12 @@ import 'location_text.dart';
 import '../../models/location.dart';
 
 class LocationDetail extends StatelessWidget {
-  const LocationDetail({Key key}) : super(key: key);
+  final int locationID;
+  const LocationDetail({Key key, this.locationID}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final locations = Location.fetchAll();
-    final location = locations.first;
+    final location = Location.fetchByID(locationID);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
